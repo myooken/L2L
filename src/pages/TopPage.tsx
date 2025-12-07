@@ -1,9 +1,24 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TEXT } from '../constants/text';
 import { SOLO_VARIANT_LIST, DUO_VARIANT_LIST } from '../domain/scoring';
+import { copyToClipboard, shareLink } from '../utils/share';
+import { QRModal } from '../components/QRModal';
 
 const TopPage = () => {
     const navigate = useNavigate();
+    const [showQR, setShowQR] = useState(false);
+    const [copyStatus, setCopyStatus] = useState<'idle' | 'copied'>('idle');
+    const shareTarget = `${window.location.origin}${window.location.pathname}`;
+
+    const handleCopy = () => {
+        copyToClipboard(shareTarget).then((ok) => {
+            if (ok) {
+                setCopyStatus('copied');
+                setTimeout(() => setCopyStatus('idle'), 2000);
+            }
+        });
+    };
 
     return (
         <div className="page">
@@ -37,6 +52,28 @@ const TopPage = () => {
             </section>
 
             <section className="card">
+                <p className="eyebrow">共有してね</p>
+                <h3>すぐ誘えるシェアカード</h3>
+                <p className="hint">リンクをコピー or QRを表示。ネイティブ共有にも対応しています。</p>
+                <div className="cta-row stacked">
+                    <div className="cta-row">
+                        <div className="btn-wrapper">
+                            <button className="btn small" onClick={handleCopy}>リンクをコピー</button>
+                            {copyStatus === 'copied' && <span className="copy-feedback" style={{ marginLeft: 8 }}>コピーしました</span>}
+                        </div>
+                        <div className="btn-wrapper">
+                            <button className="btn small" onClick={() => setShowQR(true)}>QRを表示</button>
+                        </div>
+                    </div>
+                    <div className="cta-row">
+                        <button className="btn small ghost" onClick={() => shareLink(shareTarget, 'Love Diagnosis')}>
+                            シェアする
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section className="card">
                 <p className="eyebrow">ソロタイプ一覧（16）</p>
                 <div className="grid two">
                     {SOLO_VARIANT_LIST.map((v) => (
@@ -65,6 +102,14 @@ const TopPage = () => {
                     ))}
                 </div>
             </section>
+
+            {showQR && (
+                <QRModal
+                    title="トップページのQR"
+                    link={shareTarget}
+                    onClose={() => setShowQR(false)}
+                />
+            )}
         </div>
     );
 };
