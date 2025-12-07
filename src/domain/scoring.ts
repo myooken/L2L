@@ -280,9 +280,8 @@ export function calculatePersonalResult(answers: UserAnswers): PersonalResult {
     const baseScore = accumulateScoreForAnswers(answers.answers, (q) => q.id < 200);
     const type = pickType(baseScore);
 
-    const rankedAxes: Array<keyof typeof baseScore> = ['distance', 'initiative', 'security', 'affection'].sort(
-        (a, b) => Math.abs(baseScore[b]) - Math.abs(baseScore[a]),
-    );
+    const axisOrder: Array<keyof typeof baseScore> = ['distance', 'initiative', 'security', 'affection'];
+    const rankedAxes = [...axisOrder].sort((a, b) => Math.abs(baseScore[b]) - Math.abs(baseScore[a]));
     const topAxis = rankedAxes[0];
     const secondAxis = rankedAxes[1];
 
