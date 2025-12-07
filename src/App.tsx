@@ -13,9 +13,9 @@ export function AppContent() {
       <header className="app-header">
         <Link to="/" className="brand" style={{ textDecoration: 'none', color: 'inherit' }}>
           <span className="brand-mark">💞</span>
-          <span className="brand-name">Love Diagnosis</span>
+          <span className="brand-name">L2L</span>
+          <span className="host-note">to Love Diagnosis</span>
         </Link>
-        <span className="host-note">P2P / URL-Only / GitHub Pages ready</span>
       </header>
 
       <StatusBanner />

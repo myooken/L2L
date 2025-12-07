@@ -41,23 +41,23 @@ const TopPage = () => {
         <div className="page">
             <section className="hero">
                 <div className="hero-content">
-                    <p className="eyebrow">{TEXT.hero.eyebrow}</p>
-                    <h1>{TEXT.hero.title}</h1>
+                    {/* <p className="eyebrow">{TEXT.hero.eyebrow}</p> */}
+                    <h1 style={{ whiteSpace: 'pre-wrap' }}>{TEXT.hero.title}</h1>
                     <p className="lede">{TEXT.hero.lead}</p>
                     <div className="cta-row">
                         <button className="btn primary" onClick={() => navigate('/quiz')}>
                             {TEXT.hero.ctaPrimary}
                         </button>
                     </div>
-                    <ul className="pill-list">
+                    {/* <ul className="pill-list">
                         {TEXT.hero.pills.map((pill) => (
                             <li key={pill}>{pill}</li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
             </section>
 
-            <section className="grid two">
+            {/* <section className="grid two">
                 <div className="card">
                     <h3>{TEXT.steps.do.title}</h3>
                     <p>{TEXT.steps.do.body}</p>
@@ -66,7 +66,7 @@ const TopPage = () => {
                     <h3>{TEXT.steps.pair.title}</h3>
                     <p>{TEXT.steps.pair.body}</p>
                 </div>
-            </section>
+            </section> */}
 
             <section className="card">
                 <p className="eyebrow">共有してね</p>
@@ -75,11 +75,11 @@ const TopPage = () => {
                 <div className="cta-row stacked">
                     <div className="cta-row">
                         <div className="btn-wrapper">
-                            <button className="btn small" onClick={handleCopy}>リンクをコピー</button>
+                            <button className="btn small" onClick={handleCopy}>🔗 リンクをコピー</button>
                             {copyStatus === 'copied' && <span className="copy-feedback" style={{ marginLeft: 8 }}>コピーしました</span>}
                         </div>
                         <div className="btn-wrapper">
-                            <button className="btn small" onClick={() => setShowQR(true)}>QRを表示</button>
+                            <button className="btn small" onClick={() => setShowQR(true)}>📱 QRコード</button>
                         </div>
                     </div>
                     <div className="cta-row">

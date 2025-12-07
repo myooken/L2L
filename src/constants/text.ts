@@ -1,9 +1,9 @@
 export const TEXT = {
     hero: {
         eyebrow: 'ふたりで開くと特別な結果',
-        title: '同時アクセスでペア結果を解放',
+        title: '共有で相性がわかる',
         lead: '答える → QRを渡す → いっしょに開く。それだけ。',
-        ctaPrimary: 'はじめる',
+        ctaPrimary: '診断をはじめる',
         pills: ['QRでシェア', '登録なし', 'いつでも見返せる'],
     },
     steps: {
