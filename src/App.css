@@ -211,6 +211,7 @@
   background: transparent;
   font-size: 22px;
   color: #d1d5db;
+  font-family: "Arial Black", "Arial", "Helvetica", sans-serif;
   cursor: pointer;
   transition: transform 0.1s ease, color 0.2s ease;
 }
@@ -221,6 +222,10 @@
 
 .heart.selected {
   text-shadow: 0 0 10px rgba(255, 111, 178, 0.35);
+}
+
+.heart:not(.selected) {
+  color: #d1d5db;
 }
 
 .heart.selected[data-tone="1"] {
