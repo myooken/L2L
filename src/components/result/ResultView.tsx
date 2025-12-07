@@ -124,25 +124,23 @@ const ResultView: React.FC<ResultViewProps> = ({
             <div className="qr-grid">
                 <div className="qr-block capture">
                     <p className="eyebrow">この端末の結果</p>
-                    <div className="cta-row stacked">
-                        <div className="cta-row">
-                            <div className="btn-wrapper">
-                                <button className="btn small" onClick={onShowMyQR}>
-                                    QRコードを表示
-                                </button>
-                            </div>
-                            <div className="btn-wrapper">
-                                <button className="btn small" onClick={() => copyToClipboard(myResultLink)}>
-                                    リンクをコピー
-                                </button>
-                            </div>
-                        </div>
-                        <div className="cta-row">
-                            <button className="btn small ghost" onClick={() => shareLink(myResultLink, "二人用結果（自分向け）")}>
-                                共有
-                            </button>
-                        </div>
+                <div className="cta-row">
+                    <div className="btn-wrapper">
+                        <button className="btn small" onClick={onShowMyQR}>
+                            📱 QRコードを表示
+                        </button>
                     </div>
+                    <div className="btn-wrapper">
+                        <button className="btn small" onClick={() => copyToClipboard(myResultLink)}>
+                            🔗 リンクをコピー
+                        </button>
+                    </div>
+                    <div className="btn-wrapper">
+                        <button className="btn small" onClick={() => shareLink(myResultLink, "二人用結果（自分向け）")}>
+                            📤 共有
+                        </button>
+                    </div>
+                </div>
                     <p className="qr-helper">「結果QR」を開いてスクショしてください。</p>
                 </div>
             </div>

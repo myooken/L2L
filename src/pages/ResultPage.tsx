@@ -142,18 +142,16 @@ const ResultPage = () => {
                     ))}
                 </ul>
                 <p className="small">resultId: {payload.resultId} / view: {payload.view}</p>
-                <div className="cta-row stacked">
-                    <div className="cta-row">
-                        <div className="btn-wrapper">
-                            <button className="btn small" onClick={() => setShowQR(true)}>QRを表示</button>
-                        </div>
-                        <div className="btn-wrapper">
-                            {copyLinkStatus === 'copied' && <span className="copy-feedback">コピーしました</span>}
-                            <button className="btn small" onClick={handleCopyLink}>リンクをコピー</button>
-                        </div>
+                <div className="cta-row">
+                    <div className="btn-wrapper">
+                        <button className="btn small" onClick={() => setShowQR(true)}>📱 QRを表示</button>
                     </div>
-                    <div className="cta-row">
-                        <button className="btn small ghost" onClick={() => shareLink(link, '二人の結果カード', view.title)}>シェアする</button>
+                    <div className="btn-wrapper">
+                        {copyLinkStatus === 'copied' && <span className="copy-feedback">コピーしました</span>}
+                        <button className="btn small" onClick={handleCopyLink}>🔗 リンクをコピー</button>
+                    </div>
+                    <div className="btn-wrapper">
+                        <button className="btn small" onClick={() => shareLink(link, '二人の結果カード', view.title)}>📤 シェアする</button>
                     </div>
                 </div>
                 <p className="qr-helper">スクショするならQRが便利です</p>

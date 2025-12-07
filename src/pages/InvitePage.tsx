@@ -306,19 +306,17 @@ const InvitePage = () => {
                     <h2>{isOwner ? "QRを共有して相手を招待" : "招待リンクで参加しています"}</h2>
                     <p>合言葉（ID）: <strong>{invite?.sid ?? '-'}</strong></p>
                     <div className="qr-block capture">
-                        <div className="cta-row stacked">
-                            <div className="cta-row">
-                                <div className="btn-wrapper">
-                                    <button className="btn small" onClick={() => setShowInviteQR(true)}>QRコードを表示</button>
-                                </div>
-                                <div className="btn-wrapper">
-                                    {copyInviteLinkStatus === "copied" && <span className="copy-feedback">コピーしました！</span>}
-                                    <button className="btn small" onClick={handleCopyInviteLink}>リンクをコピー</button>
-                                </div>
+                        <div className="cta-row">
+                            <div className="btn-wrapper">
+                                <button className="btn small" onClick={() => setShowInviteQR(true)}>📱 QRコードを表示</button>
                             </div>
-                            <div className="cta-row">
-                                <button className="btn small ghost" onClick={() => shareLink(inviteLink, "招待リンク")}>
-                                    共有
+                            <div className="btn-wrapper">
+                                {copyInviteLinkStatus === "copied" && <span className="copy-feedback">コピーしました！</span>}
+                                <button className="btn small" onClick={handleCopyInviteLink}>🔗 リンクをコピー</button>
+                            </div>
+                            <div className="btn-wrapper">
+                                <button className="btn small" onClick={() => shareLink(inviteLink, "招待リンク")}>
+                                    📤 共有
                                 </button>
                             </div>
                         </div>

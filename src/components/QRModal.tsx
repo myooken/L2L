@@ -61,13 +61,13 @@ export const QRModal = ({ title, link, onClose }: QRModalProps) => {
                     <div className="btn-wrapper">
                         {copyLinkStatus === "copied" && <span className="copy-feedback">コピーしました！</span>}
                         <button className="btn small primary" onClick={handleCopyLink}>
-                            リンクをコピー
+                            🔗 リンクをコピー
                         </button>
                     </div>
                     <div className="btn-wrapper">
                         {copyImageStatus === "copied" && <span className="copy-feedback">コピーしました！</span>}
                         <button className="btn small" onClick={handleCopyImage}>
-                            QR画像をコピー
+                            🖼️ QR画像をコピー
                         </button>
                     </div>
                 </div>
