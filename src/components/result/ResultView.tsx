@@ -86,7 +86,7 @@ const ResultView: React.FC<ResultViewProps> = ({
         <section className="card result-card">
             <p className="eyebrow">二人用結果が解放されました</p>
             <h2>{pairView.title}</h2>
-            <p>{pairView.message}</p>
+            <p style={{ color: 'var(--text-main)', opacity: 1, fontWeight: 500 }}>{pairView.message}</p>
             <ul>
                 {pairView.tips.map((tip) => (
                     <li key={tip}>{tip}</li>

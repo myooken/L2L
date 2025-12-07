@@ -223,7 +223,7 @@ const InvitePage = () => {
     const payloadForView = effectivePayloads ? (currentView === "A" ? effectivePayloads.A : effectivePayloads.B) : null;
     const duoProfile = payloadForView?.duoVariant ? getDuoVariantProfile(payloadForView.duoVariant) : null;
     const pairView =
-        (duoProfile && { title: duoProfile.title, message: duoProfile.message, tips: duoProfile.tips }) ||
+        (duoProfile && { title: `${duoProfile.title} ${duoProfile.emoji}`, message: duoProfile.message, tips: duoProfile.tips }) ||
         (pairResultId && invite ? buildPairViewFromResult(pairResultId, currentView) : null);
     const inviteLink = `${window.location.origin}${window.location.pathname}#/invite?d=${encoded}`;
 
@@ -331,21 +331,19 @@ const InvitePage = () => {
 
             {renderGuestQuiz()}
 
-
-
             {soloResult && (
                 <section className="card result-card">
                     <p className="eyebrow">あなたのソロ結果</p>
-                    <h2>SOLO STYLE: {soloResult.variantProfile?.avatar ?? soloResult.type.avatar}</h2>
-                    <p className="eyebrow" style={{ marginTop: '0.25rem' }}>
-                        {soloResult.variantProfile?.emoji ? `${soloResult.variantProfile.emoji} ` : ''}
-                        {soloResult.variantProfile?.label ?? soloResult.type.name}
+                    <h2>
+                        SOLO STYLE: {soloResult.variantProfile?.avatar ?? soloResult.type.avatar}
+                        {soloResult.variantProfile?.emoji && ` ${soloResult.variantProfile.emoji}`}
+                    </h2>
+                    <p style={{ color: 'var(--text-main)', opacity: 1, fontWeight: 500 }}>
+                        {soloResult.variantProfile?.description ?? soloResult.type.headline}
                     </p>
-                    <p>{soloResult.variantProfile?.description ?? soloResult.type.headline}</p>
                     <ul>
                         <li>強み: {soloResult.type.strengths.join(' / ')}</li>
                         <li>気をつける: {soloResult.type.caution}</li>
-                        {!hasRemote && <li>相手の回答を待つ間にシェアしてもOK</li>}
                     </ul>
                 </section>
             )}

@@ -55,7 +55,7 @@ const ResultPage = () => {
     const duoProfile = payload.duoVariant ? getDuoVariantProfile(payload.duoVariant) : null;
     const view = duoProfile
         ? {
-            title: duoProfile.emoji ? `${duoProfile.emoji} ${duoProfile.title}` : duoProfile.title,
+            title: duoProfile.emoji ? `${duoProfile.title} ${duoProfile.emoji}` : duoProfile.title,
             message: duoProfile.message,
             tips: duoProfile.tips,
         }
@@ -135,7 +135,7 @@ const ResultPage = () => {
             <section className="card result-card">
                 <p className="eyebrow">ふたりの相性カード</p>
                 <h2>{view.title}</h2>
-                <p>{view.message}</p>
+                <p style={{ color: 'var(--text-main)', opacity: 1, fontWeight: 500 }}>{view.message}</p>
                 <ul>
                     {view.tips.map((tip) => (
                         <li key={tip}>{tip}</li>
@@ -161,12 +161,16 @@ const ResultPage = () => {
 
             <section className="card result-card">
                 <p className="eyebrow">あなたの個人結果</p>
-                <h1>SOLO STYLE: {payload.soloAvatarSelf ?? selfVariantProfile?.avatar ?? profiles.self.avatar}</h1>
+                <h2>
+                    SOLO STYLE: {selfVariantProfile?.avatar ?? profiles.self.avatar}
+                    {selfVariantProfile?.emoji && ` ${selfVariantProfile.emoji}`}
+                </h2>
                 <p className="eyebrow" style={{ marginTop: '0.25rem' }}>
-                    {selfVariantProfile?.emoji ? `${selfVariantProfile.emoji} ` : ''}
                     {selfVariantProfile?.label ?? profiles.self.name}
                 </p>
-                <p>{selfVariantProfile?.description ?? profiles.self.headline}</p>
+                <p style={{ color: 'var(--text-main)', opacity: 1, fontWeight: 500 }}>
+                    {selfVariantProfile?.description ?? profiles.self.headline}
+                </p>
                 <ul>
                     <li>強み: {profiles.self.strengths.join(' / ')}</li>
                     <li>気をつける: {profiles.self.caution}</li>
