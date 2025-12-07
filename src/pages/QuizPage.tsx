@@ -21,6 +21,7 @@ const QuizPage = () => {
     const [bonusScaleMax, setBonusScaleMax] = useState<string>('しっかり');
 
     const handleComplete = (answers: UserAnswers) => {
+        window.scrollTo(0, 0);
         const personal = calculatePersonalResult(answers);
 
         if (role === 'owner') {

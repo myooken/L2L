@@ -45,6 +45,13 @@ const QuizForm: React.FC<QuizFormProps> = ({
     const guestHasBonus = role === 'guest' && hasBonusText;
     const bonusAriaLabel = bonusLabelText.trim() || bonusQuestionText;
 
+    // Scroll to top when moving into the followup (追加質問作成) step
+    React.useEffect(() => {
+        if (step !== 'followup') return;
+        if (typeof window === 'undefined') return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [step]);
+
     const baseAnsweredCount = baseQuestions.filter((q) => answers[q.id] !== undefined).length;
     const baseAnsweredAll = baseAnsweredCount === baseQuestions.length;
     const followupsAnsweredCount =
@@ -67,7 +74,7 @@ const QuizForm: React.FC<QuizFormProps> = ({
         baseAnsweredAll &&
         followupsReady &&
         followupsAnsweredAll &&
-        (!guestHasBonus || bonusAnswer !== null);
+        (!hasBonusText || bonusAnswer !== null);
 
     const canSubmitGuest = canSubmit;
     const canSubmitOwner = canSubmit; // オーナーの追加質問は編集のみ
@@ -107,7 +114,15 @@ const QuizForm: React.FC<QuizFormProps> = ({
     };
 
     const handleProceedToFollowup = () => {
-        if (!baseAnsweredAll) return;
+        if (!baseAnsweredAll) {
+            const missing = baseQuestions.find((q) => answers[q.id] === undefined);
+            if (missing) {
+                const el = document.getElementById(`q-block-${missing.id}`);
+                el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
         if (!followupsReady) {
             const baseOnly: Record<number, number> = {};
             baseQuestions.forEach((q) => {
@@ -118,9 +133,59 @@ const QuizForm: React.FC<QuizFormProps> = ({
             setFollowups(pickFollowupQuestions(scoreVec, 5));
         }
         setStep('followup');
+        // No auto-scroll on step change as requested
     };
 
     const handleSubmit = () => {
+        // Validation & Scroll logic
+        if (!followupsAnsweredAll) {
+            const missing = followups.find((q) => answers[q.id] === undefined);
+            if (missing) {
+                const el = document.getElementById(`q-block-${missing.id}`);
+                el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        if (hasBonusText && bonusAnswer === null) {
+            // For guest, the ID is q-block-bonus handled in the loop.
+            // For owner, duplicate answer block is hidden, so scroll to editor.
+            // But we can just use the same ID 'q-block-bonus' if we assign it to the editor too?
+            // Actually, for owner, the editor is at the bottom.
+            // Let's use specific IDs.
+            let el: HTMLElement | null = null;
+            if (role === 'owner') {
+                // The editor container
+                // We need to add an ID to BonusQuestionEditor or its container?
+                // BonusQuestionEditor is a component.
+                // Let's try to scroll to the editor section or general area.
+                // Or we can assume 'q-block-bonus' might not exist for owner in the list, but we can wrap editor?
+                // But wait, in existing code, BonusQuestionEditor doesn't have an ID passed.
+                // However, we can look for ".card" containing "追加質問（任意）" or similar.
+                // Simplest: scroll to bottom if owner? Or specific selector.
+                // Let's rely on checking if 'q-block-bonus' exists (guest), otherwise maybe the editor.
+                el = document.getElementById('q-block-bonus'); // Guest
+                // Owner doesn't render q-block-bonus in list, so it's null.
+                if (!el) {
+                    // Try to find the editor inputs
+                    const inputs = document.querySelectorAll('input[type="text"]');
+                    if (inputs.length > 0) {
+                        // The first input is likely the bonus question text if it's the editor
+                        // But better to be safe.
+                        // Let's just scroll to the bottom of the page?
+                        // Or finding the last .card?
+                        const cards = document.querySelectorAll('.card');
+                        el = cards[cards.length - 1] as HTMLElement;
+                    }
+                }
+            } else {
+                el = document.getElementById('q-block-bonus');
+            }
+
+            el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
         const canSubmit = role === 'owner' ? canSubmitOwner : canSubmitGuest;
         if (!canSubmit) return;
         const userAnswers: UserAnswers = {
@@ -129,31 +194,6 @@ const QuizForm: React.FC<QuizFormProps> = ({
         };
         onComplete(userAnswers);
     };
-
-    React.useEffect(() => {
-        if (step !== 'followup') return;
-        if (typeof window === 'undefined') return;
-        const ua = window.navigator?.userAgent || '';
-        if (/jsdom/i.test(ua)) return;
-
-        const firstBlock = shuffledFollowupBlocks[0];
-        const targetId =
-            firstBlock?.kind === 'bonus'
-                ? 'q-block-bonus'
-                : firstBlock?.kind === 'followup'
-                    ? `q-block-${firstBlock.question.id}`
-                    : null;
-
-        const target =
-            (targetId ? document.getElementById(targetId) : null) ??
-            (document.querySelector('.quiz-form') as HTMLElement | null);
-
-        if (target?.scrollIntoView) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else if (typeof window.scrollTo === 'function') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    }, [step, shuffledFollowupBlocks]);
 
     return (
         <div className="quiz-form">
@@ -180,66 +220,73 @@ const QuizForm: React.FC<QuizFormProps> = ({
                 <>
                     <section className="card">
                         <p className="eyebrow">質問の続き</p>
-                        {shuffledFollowupBlocks.map((item, idx) => {
-                            const displayIndex = baseQuestions.length + idx + 1;
-                            if (item.kind === 'bonus') {
-                                const selected = bonusAnswer ?? 0;
-                                return (
-                                    <div key="bonus-block" id="q-block-bonus" className="question-block">
-                                        <p className="eyebrow">Q{displayIndex}</p>
-                                        <h2>{bonusQuestionText || '追加質問'}</h2>
-                                        <div className="likert-block" role="group" aria-label={bonusAriaLabel || '追加質問'}>
-                                            <div className="likert-label-row">
-                                                <span className="likert-label">{bonusScaleMinText}</span>
-                                                <span className="likert-label right">{bonusScaleMaxText}</span>
+                        {shuffledFollowupBlocks
+                            .filter((item) => !(item.kind === 'bonus' && role === 'owner'))
+                            .map((item, idx) => {
+                                const displayIndex = baseQuestions.length + idx + 1;
+                                if (item.kind === 'bonus') {
+                                    // Owner answers in the editor below, so skip rendering here
+                                    if (role === 'owner') return null;
+
+                                    const selected = bonusAnswer ?? 0;
+                                    return (
+                                        <div key="bonus-block" id="q-block-bonus" className="question-block">
+                                            <p className="eyebrow">Q{displayIndex}</p>
+                                            <h2>{bonusQuestionText || '追加質問'}</h2>
+                                            <div className="likert-block" role="group" aria-label={bonusAriaLabel || '追加質問'}>
+                                                <div className="likert-label-row">
+                                                    <span className="likert-label">{bonusScaleMinText}</span>
+                                                    <span className="likert-label right">{bonusScaleMaxText}</span>
+                                                </div>
+                                                <HeartScale value={selected || null} onChange={(v) => setBonusAnswer(v)} />
                                             </div>
-                                            <HeartScale value={selected || null} onChange={(v) => setBonusAnswer(v)} />
                                         </div>
-                                    </div>
+                                    );
+                                }
+                                return (
+                                    <LikertQuestionBlock
+                                        key={item.question.id}
+                                        question={item.question}
+                                        displayIndex={displayIndex}
+                                        selected={answers[item.question.id] ?? 0}
+                                        onSelect={(v) => handleOptionSelect(item.question.id, v)}
+                                    />
                                 );
-                            }
-                            return (
-                                <LikertQuestionBlock
-                                    key={item.question.id}
-                                    question={item.question}
-                                    displayIndex={displayIndex}
-                                    selected={answers[item.question.id] ?? 0}
-                                    onSelect={(v) => handleOptionSelect(item.question.id, v)}
-                                />
-                            );
-                        })}
+                            })}
                     </section>
 
                     {role === 'owner' && (
-                        <BonusQuestionEditor
-                            questionText={bonusQuestionText}
-                            onQuestionChange={(text) => {
-                                onBonusQuestionChange?.(text);
-                                onBonusLabelChange?.(text); // compatibility
-                            }}
-                            scaleMin={bonusScaleMinText}
-                            scaleMax={bonusScaleMaxText}
-                            onScaleMinChange={(text) => onBonusScaleMinChange?.(text)}
-                            onScaleMaxChange={(text) => onBonusScaleMaxChange?.(text)}
-                            value={bonusAnswer}
-                            onSelect={setBonusAnswer}
-                            hasQuestion={hasBonusText}
-                        />
+                        <div id="bonus-editor-container">
+                            <BonusQuestionEditor
+                                questionText={bonusQuestionText}
+                                onQuestionChange={(text) => {
+                                    onBonusQuestionChange?.(text);
+                                    onBonusLabelChange?.(text); // compatibility
+                                }}
+                                scaleMin={bonusScaleMinText}
+                                scaleMax={bonusScaleMaxText}
+                                onScaleMinChange={(text) => onBonusScaleMinChange?.(text)}
+                                onScaleMaxChange={(text) => onBonusScaleMaxChange?.(text)}
+                                value={bonusAnswer}
+                                onSelect={setBonusAnswer}
+                                hasQuestion={hasBonusText}
+                            />
+                        </div>
                     )}
                 </>
             )}
 
             <div className="cta-row">
                 {step === 'base' ? (
-                    <button className="btn primary" disabled={!canProceed} onClick={handleProceedToFollowup}>
+                    <button className="btn primary" onClick={handleProceedToFollowup}>
                         次へ
                     </button>
                 ) : role === 'owner' ? (
-                    <button className="btn primary" disabled={!canSubmitOwner} onClick={handleSubmit}>
+                    <button className="btn primary" onClick={handleSubmit}>
                         診断結果へ
                     </button>
                 ) : (
-                    <button className="btn primary" disabled={!canSubmitGuest} onClick={handleSubmit}>
+                    <button className="btn primary" onClick={handleSubmit}>
                         送信する
                     </button>
                 )}
