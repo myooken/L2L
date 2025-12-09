@@ -10,6 +10,7 @@ import { useAppStatus } from '../context/AppStatusContext';
 import HighlightSelector, { type HighlightChoice } from '../components/result/HighlightSelector';
 import BonusAnswerBlock from '../components/result/BonusAnswerBlock';
 import { QRModal } from '../components/QRModal';
+import { BONUS_INSERT_INDEX } from '../const/quiz';
 
 const ResultPage = () => {
     const [searchParams] = useSearchParams();
@@ -68,7 +69,7 @@ const ResultPage = () => {
     const bonusDetail = payload.bonusDetail;
     const questionChoices: HighlightChoice[] = [];
 
-    const insertAt = 3;
+    const insertAt = BONUS_INSERT_INDEX;
     let displayIndex = 1;
     const answeredIds = Array.from(
         new Set([

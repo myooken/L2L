@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { pickFollowupQuestions, shuffleBaseQuestions } from '../domain/questions';
 import type { Role, UserAnswers, Question } from '../domain/types';
-import HeartScale from './quiz/HeartScale';
 import BonusQuestionEditor from './quiz/BonusQuestionEditor';
 import ProgressBar from './quiz/ProgressBar';
-import LikertQuestionBlock from './quiz/LikertQuestionBlock';
+import BaseQuestionSection from './quiz/BaseQuestionSection';
+import FollowupQuestionList, { type FollowupBlock } from './quiz/FollowupQuestionList';
 import { calculateScoreVector } from '../domain/scoring';
+import { BONUS_CREATION_HINT, DEFAULT_BONUS_MAX_LABEL, DEFAULT_BONUS_MIN_LABEL, FOLLOWUP_QUESTION_COUNT } from '../const/quiz';
 
 interface QuizFormProps {
     role: Role;
@@ -29,8 +30,8 @@ const QuizForm: React.FC<QuizFormProps> = ({
     onBonusQuestionChange,
     bonusLabelText = '',
     onBonusLabelChange,
-    bonusScaleMinText = 'まったり',
-    bonusScaleMaxText = 'しっかり',
+    bonusScaleMinText = DEFAULT_BONUS_MIN_LABEL,
+    bonusScaleMaxText = DEFAULT_BONUS_MAX_LABEL,
     onBonusScaleMinChange,
     onBonusScaleMaxChange,
 }: QuizFormProps) => {
@@ -86,12 +87,10 @@ const QuizForm: React.FC<QuizFormProps> = ({
             if (val !== undefined) baseOnly[q.id] = val;
         });
         const scoreVec = calculateScoreVector(baseOnly);
-        setFollowups(pickFollowupQuestions(scoreVec, 5));
+        setFollowups(pickFollowupQuestions(scoreVec, FOLLOWUP_QUESTION_COUNT));
     }, [canPrepareFollowups, baseQuestions, answers]);
 
     // renderLikertQuestion function removed.
-
-    type FollowupBlock = { kind: 'followup'; question: Question } | { kind: 'bonus' };
 
     const shuffledFollowupBlocks: FollowupBlock[] = useMemo(() => {
         if (step !== 'followup') return [];
@@ -200,58 +199,24 @@ const QuizForm: React.FC<QuizFormProps> = ({
             <ProgressBar progress={progress} label={`${answeredQuestions}/${totalQuestions}`} />
 
             {step === 'base' && (
-                <section className="card">
-                    <p className="eyebrow">最初の10問</p>
-                    {baseQuestions.map((q, idx) => (
-                        <LikertQuestionBlock
-                            key={q.id}
-                            question={q}
-                            displayIndex={idx + 1}
-                            selected={answers[q.id] ?? 0}
-                            onSelect={(v) => handleOptionSelect(q.id, v)}
-                        />
-                    ))}
-                </section>
+                <BaseQuestionSection questions={baseQuestions} answers={answers} onSelect={handleOptionSelect} />
             )}
 
             {step === 'followup' && (
                 <>
-                    <section className="card">
-                        <p className="eyebrow">質問の続き</p>
-                        {shuffledFollowupBlocks
-                            .filter((item) => !(item.kind === 'bonus' && role === 'owner'))
-                            .map((item, idx) => {
-                                const displayIndex = baseQuestions.length + idx + 1;
-                                if (item.kind === 'bonus') {
-                                    // Owner answers in the editor below, so skip rendering here
-                                    if (role === 'owner') return null;
-
-                                    const selected = bonusAnswer ?? 0;
-                                    return (
-                                        <div key="bonus-block" id="q-block-bonus" className="question-block">
-                                            <p className="eyebrow">Q{displayIndex}</p>
-                                            <h2>{bonusQuestionText || '追加質問'}</h2>
-                                            <div className="likert-block" role="group" aria-label={bonusAriaLabel || '追加質問'}>
-                                                <div className="likert-label-row">
-                                                    <span className="likert-label">{bonusScaleMinText}</span>
-                                                    <span className="likert-label right">{bonusScaleMaxText}</span>
-                                                </div>
-                                                <HeartScale value={selected || null} onChange={(v) => setBonusAnswer(v)} />
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                                return (
-                                    <LikertQuestionBlock
-                                        key={item.question.id}
-                                        question={item.question}
-                                        displayIndex={displayIndex}
-                                        selected={answers[item.question.id] ?? 0}
-                                        onSelect={(v) => handleOptionSelect(item.question.id, v)}
-                                    />
-                                );
-                            })}
-                    </section>
+                    <FollowupQuestionList
+                        role={role}
+                        baseCount={baseQuestions.length}
+                        blocks={shuffledFollowupBlocks}
+                        answers={answers}
+                        bonusAnswer={bonusAnswer}
+                        bonusQuestionText={bonusQuestionText}
+                        bonusScaleMinText={bonusScaleMinText}
+                        bonusScaleMaxText={bonusScaleMaxText}
+                        bonusAriaLabel={bonusAriaLabel}
+                        onSelect={handleOptionSelect}
+                        onBonusChange={setBonusAnswer}
+                    />
 
                     {role === 'owner' && (
                         <div id="bonus-editor-container">
@@ -268,7 +233,7 @@ const QuizForm: React.FC<QuizFormProps> = ({
                                 value={bonusAnswer}
                                 onSelect={setBonusAnswer}
                                 hasQuestion={hasBonusText}
-                                creationHint="※あなたも答えてね"
+                                creationHint={BONUS_CREATION_HINT}
                             />
                         </div>
                     )}

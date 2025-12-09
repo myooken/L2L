@@ -15,17 +15,9 @@ import { useAppStatus } from "../context/AppStatusContext";
 // import BonusAnswerBlock from "../components/result/BonusAnswerBlock"; // Moved to ResultView
 import ResultView from "../components/result/ResultView";
 import { QRModal } from "../components/QRModal";
+import { INVITE_LINK_RESET_MS, P2P_MAX_RETRIES, P2P_RETRY_DELAY_MS, P2P_STATUS_TEXT } from "../const/p2p";
 
 type PairPayloads = { A: PairResultPayload; B: PairResultPayload };
-
-const statusTextMap: Record<P2PStatus, string> = {
-    connected: "接続しました",
-    connecting: "接続中…",
-    retrying: "再接続中…",
-    listening: "相手を待っています",
-    idle: "待機中",
-    error: "エラーが発生しました",
-};
 
 const InvitePage = () => {
     const [searchParams] = useSearchParams();
@@ -62,7 +54,7 @@ const InvitePage = () => {
         copyToClipboard(inviteLink).then((ok) => {
             if (ok) {
                 setCopyInviteLinkStatus("copied");
-                setTimeout(() => setCopyInviteLinkStatus("idle"), 2000);
+                setTimeout(() => setCopyInviteLinkStatus("idle"), INVITE_LINK_RESET_MS);
             } else {
                 pushMessage("コピーに失敗しました", "error");
             }
@@ -75,8 +67,8 @@ const InvitePage = () => {
         onMessage: handleIncoming,
         guard: isP2PMessage,
         autoStart: Boolean(invite?.sid),
-        maxRetries: 0, // unlimited retries for stability
-        retryDelayMs: 1500,
+        maxRetries: P2P_MAX_RETRIES, // unlimited retries for stability
+        retryDelayMs: P2P_RETRY_DELAY_MS,
     });
 
     useEffect(() => {
@@ -359,7 +351,7 @@ const InvitePage = () => {
                 <p className="eyebrow">接続状況</p>
                 <div className="status">
                     <span className={"status-dot " + statusDotClass} />
-                    {statusTextMap[p2p.status] ?? ("接続状態: " + p2p.status)}
+                    {P2P_STATUS_TEXT[p2p.status] ?? ("接続状態: " + p2p.status)}
                 </div>
                 <div className="status secondary">
                     <span className={"status-dot " + (hasLocal ? "on" : "wait")} />

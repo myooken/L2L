@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TEXT } from '../constants/text';
+import { TEXT } from '../const/text';
 import { SOLO_VARIANT_LIST, DUO_VARIANT_LIST } from '../domain/scoring';
 import { copyToClipboard, shareLink } from '../utils/share';
 import { QRModal } from '../components/QRModal';

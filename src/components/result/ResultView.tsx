@@ -6,6 +6,7 @@ import HighlightSelector, { type HighlightChoice } from "./HighlightSelector";
 import BonusAnswerBlock from "./BonusAnswerBlock";
 import { QUESTION_MAP } from "../../domain/questions";
 import type { PairView } from "../../domain/types";
+import { BONUS_INSERT_INDEX } from "../../const/quiz";
 
 interface ResultViewProps {
     pairView: PairView;
@@ -29,7 +30,7 @@ const ResultView: React.FC<ResultViewProps> = ({
     const bonusDetail = payloadForMe.bonusDetail;
     const questionChoices: HighlightChoice[] = [];
 
-    const insertAt = 3; // Q4にボーナスを挿入
+    const insertAt = BONUS_INSERT_INDEX; // Q4にボーナスを挿入
     let displayIndex = 1;
 
     const answeredIds = Array.from(
