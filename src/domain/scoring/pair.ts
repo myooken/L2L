@@ -1,8 +1,8 @@
 import { HOST_BONUS_TIPS, PERSONAL_TYPE_MAP } from "../../const/scoring";
 import { determineDuoVariant } from "./matching";
 import { calculatePersonalResult, pickAvatar } from "./personal";
-import type { PersonalResult, PairResult } from "./types";
-import type { DuoVariant, PairView, PersonalTypeProfile, UserAnswers } from "../types";
+import type { PairResult } from "./types";
+import type { PairView, PersonalTypeProfile, UserAnswers } from "../types";
 
 function encodeResultId(typeA: number, typeB: number, keyMatch: boolean): number {
     // 1xxx: key match, 2xxx: mismatch

@@ -39,7 +39,7 @@ export function calculatePersonalResult(answers: UserAnswers): PersonalResult {
             .map(([id, val]) => {
                 const q = QUESTION_MAP.get(Number(id));
                 if (!q || !q.focus || q.id < 200) return null;
-                const opt = q.options.find((o) => o.value === val);
+                const opt = q.options.find((o: Question['options'][number]) => o.value === val);
                 if (!opt) return null;
                 return { axis: q.focus, score: opt.score[q.focus] ?? 0 };
             })

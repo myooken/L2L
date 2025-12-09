@@ -1,6 +1,5 @@
 import type {
     DuoVariant,
-    DuoVariantProfile,
     PairView,
     PersonalTypeProfile,
     SoloVariant,

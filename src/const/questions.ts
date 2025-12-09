@@ -1,4 +1,4 @@
-import type { Question, KeyQuestion } from './types';
+import type { Question, KeyQuestion } from '../domain/types';
 
 export const BASE_QUESTIONS: Question[] = [
     {
