@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "format": "eslint . --fix",
     "test": "vitest run",
     "test:ci": "vitest run --silent",
     "preview": "vite preview"
