@@ -11,7 +11,11 @@
     "format": "eslint . --fix",
     "test": "vitest run",
     "test:ci": "vitest run --silent",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "licenses:scan": "license-checker --json > licenses.json && license-checker --production --relativeLicensePath --markdown > THIRD-PARTY-LICENSES.md",
+    "licenses:check": "node _script/check-licenses.mjs",
+    "licenses:notices": "node _script/collect-notices.mjs",
+    "licenses:page": "node _script/build-license-page.mjs"
   },
   "dependencies": {
     "lz-string": "^1.5.0",
@@ -40,6 +44,9 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "jsdom": "^27.2.0",
+    "license-checker": "^25.0.1",
+    "spdx-expression-parse": "^3.0.1",
+    "spdx-license-ids": "^3.0.20",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
