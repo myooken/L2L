@@ -646,17 +646,42 @@
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8fafc;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  max-height: 520px;
-  overflow: auto;
-}
-
-.license-text pre {
-  margin: 0;
-  white-space: pre-wrap;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
   color: #1f2933;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.license-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.license-block {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fbff;
+}
+
+.license-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f1c2e;
+}
+
+.license-file {
+  font-size: 12px;
+  font-weight: 400;
+  color: #5a6778;
 }
 
 .license-box {

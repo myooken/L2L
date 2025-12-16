@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:ci": "vitest run --silent",
     "preview": "vite preview",
-    "licenses:scan": "license-checker --json > licenses.json && license-checker --production --relativeLicensePath --markdown > THIRD-PARTY-LICENSES.md",
+    "licenses:scan": "node _script/scan-licenses.mjs",
     "licenses:check": "node _script/check-licenses.mjs",
     "licenses:notices": "node _script/collect-notices.mjs",
     "licenses:page": "node _script/build-license-page.mjs"

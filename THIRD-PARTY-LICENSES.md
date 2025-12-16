@@ -1,5 +1,4 @@
 [@msgpack/msgpack@2.8.0](https://github.com/msgpack/msgpack-javascript) - ISC
-[L2L@0.0.0](undefined) - UNLICENSED
 [cookie@1.1.1](https://github.com/jshttp/cookie) - MIT
 [eventemitter3@4.0.7](https://github.com/primus/eventemitter3) - MIT
 [lz-string@1.5.0](https://github.com/pieroxy/lz-string) - MIT
