@@ -11,6 +11,7 @@ const DOCS_DIR = path.join(ROOT, "docs", "licenses");
 const THIRD_PARTY_SRC = path.join(ROOT, "THIRD-PARTY-LICENSES.md");
 const THIRD_PARTY_DEST = path.join(DOCS_DIR, "THIRD-PARTY-LICENSES.md");
 const LICENSES_JSON_PATH = path.join(ROOT, "licenses.json");
+const CUSTOM_FORMAT_PATH = path.join(ROOT, "_script", "license-checker-format.json");
 
 const ensureDir = async (dir) => {
     await fsp.mkdir(dir, { recursive: true });
@@ -44,33 +45,72 @@ const runLicenseChecker = async (args) => {
     return stdout;
 };
 
-const filterOutProjectLines = (md, projectId) =>
-    md
-        .split("\n")
-        .filter((line) => !line.startsWith(`[${projectId}]`))
-        .join("\n");
-
 const sortJsonByKey = (data) =>
     Object.fromEntries(Object.keys(data).sort().map((key) => [key, data[key]]));
 
+const readLicenseText = async (info) => {
+    if (info.licenseText && String(info.licenseText).trim()) {
+        return String(info.licenseText).trimEnd();
+    }
+    const licenseFile = info.licenseFile
+        ? path.isAbsolute(info.licenseFile)
+            ? info.licenseFile
+            : path.join(ROOT, info.licenseFile)
+        : null;
+    if (licenseFile && fs.existsSync(licenseFile)) {
+        return (await fsp.readFile(licenseFile, "utf8")).trimEnd();
+    }
+    return null;
+};
+
 const buildOutputs = async (projectId) => {
-    const jsonArgs = ["--json", "--excludePackages", projectId];
-    const mdArgs = [
+    const jsonArgs = [
+        "--json",
         "--production",
-        "--relativeLicensePath",
-        "--markdown",
+        "--customPath",
+        CUSTOM_FORMAT_PATH,
         "--excludePackages",
         projectId,
     ];
 
     const [jsonOutput, mdOutput] = await Promise.all([
         runLicenseChecker(jsonArgs),
-        runLicenseChecker(mdArgs),
     ]);
 
     const jsonData = sortJsonByKey(JSON.parse(jsonOutput));
     delete jsonData[projectId];
-    const markdown = filterOutProjectLines(mdOutput, projectId);
+
+    const lines = [];
+    lines.push("# Third-Party Licenses");
+    lines.push("");
+    for (const [pkgId, info] of Object.entries(jsonData)) {
+        lines.push(`## ${pkgId}`);
+        if (info.repository) {
+            lines.push(`- Repository: ${info.repository}`);
+        }
+        if (info.licenses) {
+            lines.push(`- License: ${info.licenses}`);
+        }
+        if (info.licenseFile) {
+            const relPath = path.isAbsolute(info.licenseFile)
+                ? path.relative(ROOT, info.licenseFile)
+                : info.licenseFile;
+            lines.push(`- License file: ${relPath}`);
+        }
+        lines.push("");
+
+        const text = await readLicenseText(info);
+        if (text) {
+            lines.push("```text");
+            lines.push(text);
+            lines.push("```");
+        } else {
+            lines.push("_License text could not be found._");
+        }
+        lines.push("");
+    }
+
+    const markdown = lines.join("\n");
 
     return { jsonData, markdown };
 };

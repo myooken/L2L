@@ -1,18 +1,26 @@
-// Apache-2.0 依存の NOTICE を docs/licenses/notices に集めるスクリプト。
-// license-checker の出力 (licenses.json) を元に、各パッケージ配下の NOTICE* をコピーする。
-// 1 回のコピー結果と不足一覧を reports/notice-collection.md に残す。
+// Collect NOTICE files from license-checker output (licenses.json) and
+// - copy them into docs/licenses/notices/<pkg>.NOTICE.txt
+// - aggregate them into THIRD-PARTY-NOTICES.md (root + docs/licenses)
+// Prerequisite: run `npm run licenses:scan` first to refresh licenses.json.
 import fs from "node:fs";
 import fsp from "node:fs/promises";
 import path from "node:path";
-import spdxParse from "spdx-expression-parse";
-
-const parseSpdx = spdxParse;
 
 const ROOT = process.cwd();
 const LICENSES_JSON_PATH = path.join(ROOT, "licenses.json");
-const PACKAGE_JSON_PATH = path.join(ROOT, "package.json");
 const NOTICES_DIR = path.join(ROOT, "docs", "licenses", "notices");
+const THIRD_PARTY_SRC = path.join(ROOT, "THIRD-PARTY-NOTICES.md");
+const THIRD_PARTY_DEST = path.join(ROOT, "docs", "licenses", "THIRD-PARTY-NOTICES.md");
 const REPORTS_DIR = path.join(ROOT, "reports");
+
+const NOTICE_CANDIDATES = [
+    "NOTICE",
+    "NOTICE.txt",
+    "NOTICE.md",
+    "Notices.txt",
+    "NOTICES",
+    "NOTICES.txt",
+];
 
 const sanitizePackageId = (pkgId) => pkgId.replace(/[\\/]/g, "__");
 
@@ -20,49 +28,29 @@ const ensureDir = async (dir) => {
     await fsp.mkdir(dir, { recursive: true });
 };
 
-const normalizeLicenses = (value) => {
-    if (!value) return "";
-    if (Array.isArray(value)) return value.filter(Boolean).join(" OR ");
-    return String(value).trim();
-};
-
-const splitFallbackIds = (expression) =>
-    expression
-        .replace(/[()]/g, " ")
-        .split(/(?:AND|OR|WITH|,|\/)/i)
-        .map((part) => part.trim())
-        .filter(Boolean);
-
-// SPDX 式を厳密パースし、失敗したら簡易分解
-const extractIds = (expression) => {
-    const trimmed = expression.trim();
-    try {
-        const ast = parseSpdx(trimmed);
-        const walk = (node) => {
-            if (!node) return [];
-            if (node.license) return [node.license];
-            return [...walk(node.left), ...walk(node.right)];
-        };
-        return [...new Set(walk(ast))];
-    } catch {
-        return [...new Set(splitFallbackIds(trimmed))];
-    }
-};
-
-// package 配下で NOTICE* を探す
 const findNoticeFile = async (info) => {
-    if (info.noticeFile && fs.existsSync(info.noticeFile)) {
-        return info.noticeFile;
+    if (info.path && fs.existsSync(info.path)) {
+        for (const candidate of NOTICE_CANDIDATES) {
+            const noticePath = path.join(info.path, candidate);
+            if (fs.existsSync(noticePath) && fs.lstatSync(noticePath).isFile()) {
+                return noticePath;
+            }
+        }
     }
-    if (!info.licenseFile || !fs.existsSync(info.licenseFile)) {
-        return null;
+
+    if (info.licenseFile) {
+        const licenseDir = path.dirname(info.licenseFile);
+        if (fs.existsSync(licenseDir)) {
+            for (const candidate of NOTICE_CANDIDATES) {
+                const noticePath = path.join(licenseDir, candidate);
+                if (fs.existsSync(noticePath) && fs.lstatSync(noticePath).isFile()) {
+                    return noticePath;
+                }
+            }
+        }
     }
-    const pkgDir = path.dirname(info.licenseFile);
-    const entries = await fsp.readdir(pkgDir, { withFileTypes: true });
-    const hit = entries.find(
-        (entry) => entry.isFile() && /^NOTICE(\.|$)/i.test(entry.name)
-    );
-    return hit ? path.join(pkgDir, hit.name) : null;
+
+    return null;
 };
 
 const appendStepSummary = async (lines) => {
@@ -74,24 +62,13 @@ const main = async () => {
     await ensureDir(NOTICES_DIR);
     await ensureDir(REPORTS_DIR);
 
-    // licenses.json を読み、プロジェクト自身を除外
     const raw = await fsp.readFile(LICENSES_JSON_PATH, "utf8");
     const data = JSON.parse(raw);
-    const pkg = JSON.parse(await fsp.readFile(PACKAGE_JSON_PATH, "utf8"));
-    const projectId = `${pkg.name}@${pkg.version}`;
 
     const copied = [];
     const missingSource = [];
 
     for (const [pkgId, info] of Object.entries(data)) {
-        if (pkgId === projectId) continue;
-
-        const expression = normalizeLicenses(info.licenses);
-        const ids = extractIds(expression);
-        if (!ids.includes("Apache-2.0")) {
-            continue;
-        }
-
         const noticePath = await findNoticeFile(info);
         if (!noticePath) {
             missingSource.push(pkgId);
@@ -100,7 +77,12 @@ const main = async () => {
 
         const dest = path.join(NOTICES_DIR, `${sanitizePackageId(pkgId)}.NOTICE.txt`);
         await fsp.copyFile(noticePath, dest);
-        copied.push({ pkgId, source: noticePath, dest });
+        copied.push({
+            pkgId,
+            source: noticePath,
+            dest,
+            text: (await fsp.readFile(noticePath, "utf8")).trimEnd(),
+        });
     }
 
     const summaryLines = [];
@@ -136,9 +118,30 @@ const main = async () => {
     missingSource.forEach((pkgId) =>
         console.log(`[notice] ${pkgId}: NOTICE not found in package`)
     );
+
+    // Build THIRD-PARTY-NOTICES.md (root + docs)
+    const noticeDocLines = [];
+    noticeDocLines.push("# Third-Party Notices");
+    noticeDocLines.push("");
+    noticeDocLines.push(`Generated: ${new Date().toISOString()}`);
+    noticeDocLines.push("");
+
+    copied.forEach((item) => {
+        noticeDocLines.push(`## ${item.pkgId}`);
+        noticeDocLines.push(`Source: ${path.relative(ROOT, item.source)}`);
+        noticeDocLines.push("");
+        noticeDocLines.push("```text");
+        noticeDocLines.push(item.text);
+        noticeDocLines.push("```");
+        noticeDocLines.push("");
+    });
+
+    await fsp.writeFile(THIRD_PARTY_SRC, noticeDocLines.join("\n"));
+    await ensureDir(path.dirname(THIRD_PARTY_DEST));
+    await fsp.writeFile(THIRD_PARTY_DEST, noticeDocLines.join("\n"));
 };
 
 main().catch((err) => {
-    console.error(`::error::NOTICE 収集中にエラー: ${err.message}`);
+    console.error(`::error::NOTICE collection failed: ${err.message}`);
     process.exit(1);
 });

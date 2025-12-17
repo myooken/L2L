@@ -1,6 +1,6 @@
 # Licenses
 
-Generated: 2025-12-16T14:41:57.706Z
+Generated: 2025-12-16T16:08:18.215Z
 
 ## This Project
 - License: MIT (package.json)
@@ -35,24 +35,17 @@ SOFTWARE.
 </details>
 
 ## Third-Party Summary
-- Dependencies scanned: 336
+- Dependencies scanned: 16
 - Third-party list: [THIRD-PARTY-LICENSES.md](./THIRD-PARTY-LICENSES.md)
+- Notices: [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)
 - Raw report: licenses.json
 
 ### License Distribution
 | License | Packages |
 | --- | --- |
-| Apache-2.0 | 18 |
-| BSD-2-Clause | 8 |
-| BSD-3-Clause | 5 |
-| BlueOak-1.0.0 | 1 |
-| CC-BY-3.0 | 2 |
-| CC-BY-4.0 | 1 |
-| CC0-1.0 | 2 |
-| ISC | 34 |
-| MIT | 263 |
-| MIT-0 | 2 |
-| Python-2.0 | 1 |
+| BSD-3-Clause | 1 |
+| ISC | 2 |
+| MIT | 13 |
 
 ## License Texts
 <details>
