@@ -3,7 +3,7 @@
 ## @msgpack/msgpack@2.8.0
 - Repository: https://github.com/msgpack/msgpack-javascript
 - License: ISC
-- License file: node_modules\@msgpack\msgpack\LICENSE
+- License file: node_modules/@msgpack/msgpack/LICENSE
 
 ```text
 Copyright 2019 The MessagePack Community.
@@ -16,7 +16,7 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 ## cookie@1.1.1
 - Repository: https://github.com/jshttp/cookie
 - License: MIT
-- License file: node_modules\cookie\LICENSE
+- License file: node_modules/cookie/LICENSE
 
 ```text
 (The MIT License)
@@ -47,7 +47,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## eventemitter3@4.0.7
 - Repository: https://github.com/primus/eventemitter3
 - License: MIT
-- License file: node_modules\eventemitter3\LICENSE
+- License file: node_modules/eventemitter3/LICENSE
 
 ```text
 The MIT License (MIT)
@@ -76,7 +76,7 @@ SOFTWARE.
 ## lz-string@1.5.0
 - Repository: https://github.com/pieroxy/lz-string
 - License: MIT
-- License file: node_modules\lz-string\LICENSE
+- License file: node_modules/lz-string/LICENSE
 
 ```text
 MIT License
@@ -105,7 +105,7 @@ SOFTWARE.
 ## peerjs-js-binarypack@2.1.0
 - Repository: https://github.com/peers/js-binarypack
 - License: MIT
-- License file: node_modules\peerjs-js-binarypack\LICENSE
+- License file: node_modules/peerjs-js-binarypack/LICENSE
 
 ```text
 Copyright (c) 2012 Eric Zhang, http://binaryjs.com
@@ -135,7 +135,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## peerjs@1.5.5
 - Repository: https://github.com/peers/peerjs
 - License: MIT
-- License file: node_modules\peerjs\LICENSE
+- License file: node_modules/peerjs/LICENSE
 
 ```text
 Copyright (c) 2015 Michelle Bu and Eric Zhang, http://peerjs.com
@@ -165,7 +165,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## qrcode.react@4.2.0
 - Repository: https://github.com/zpao/qrcode.react
 - License: ISC
-- License file: node_modules\qrcode.react\LICENSE
+- License file: node_modules/qrcode.react/LICENSE
 
 ```text
 ISC License
@@ -191,7 +191,7 @@ This product bundles QR Code Generator, which is available under a
 ## react-dom@19.2.1
 - Repository: https://github.com/facebook/react
 - License: MIT
-- License file: node_modules\react-dom\LICENSE
+- License file: node_modules/react-dom/LICENSE
 
 ```text
 MIT License
@@ -220,7 +220,7 @@ SOFTWARE.
 ## react-router-dom@7.10.0
 - Repository: https://github.com/remix-run/react-router
 - License: MIT
-- License file: node_modules\react-router-dom\LICENSE.md
+- License file: node_modules/react-router-dom/LICENSE.md
 
 ```text
 MIT License
@@ -251,7 +251,7 @@ SOFTWARE.
 ## react-router@7.10.0
 - Repository: https://github.com/remix-run/react-router
 - License: MIT
-- License file: node_modules\react-router\LICENSE.md
+- License file: node_modules/react-router/LICENSE.md
 
 ```text
 MIT License
@@ -282,7 +282,7 @@ SOFTWARE.
 ## react@19.2.1
 - Repository: https://github.com/facebook/react
 - License: MIT
-- License file: node_modules\react\LICENSE
+- License file: node_modules/react/LICENSE
 
 ```text
 MIT License
@@ -311,7 +311,7 @@ SOFTWARE.
 ## scheduler@0.27.0
 - Repository: https://github.com/facebook/react
 - License: MIT
-- License file: node_modules\scheduler\LICENSE
+- License file: node_modules/scheduler/LICENSE
 
 ```text
 MIT License
@@ -340,7 +340,7 @@ SOFTWARE.
 ## sdp@3.2.1
 - Repository: https://github.com/fippo/sdp
 - License: MIT
-- License file: node_modules\sdp\LICENSE
+- License file: node_modules/sdp/LICENSE
 
 ```text
 Copyright (c) 2017 Philipp Hancke
@@ -367,7 +367,7 @@ SOFTWARE.
 ## set-cookie-parser@2.7.2
 - Repository: https://github.com/nfriedly/set-cookie-parser
 - License: MIT
-- License file: node_modules\set-cookie-parser\LICENSE
+- License file: node_modules/set-cookie-parser/LICENSE
 
 ```text
 The MIT License (MIT)
@@ -396,7 +396,7 @@ THE SOFTWARE.
 ## uuid@13.0.0
 - Repository: https://github.com/uuidjs/uuid
 - License: MIT
-- License file: node_modules\uuid\LICENSE.md
+- License file: node_modules/uuid/LICENSE.md
 
 ```text
 The MIT License (MIT)
@@ -413,7 +413,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## webrtc-adapter@9.0.3
 - Repository: https://github.com/webrtchacks/adapter
 - License: BSD-3-Clause
-- License file: node_modules\webrtc-adapter\LICENSE.md
+- License file: node_modules/webrtc-adapter/LICENSE.md
 
 ```text
 Copyright (c) 2014, The WebRTC project authors. All rights reserved.
