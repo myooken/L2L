@@ -1,6 +1,6 @@
 # Third-Party Licenses
 
-Generated from: \L2L\node_modules
+Generated from: node_modules
 
 <a id="pkg-acemir-cssom-0-9-24"></a>
 ## @acemir/cssom@0.9.24
@@ -3221,8 +3221,8 @@ Permission to use, copy, modify, and/or distribute this software for any purpose
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```
 
-<a id="pkg-myooken-license-output-0-2-0"></a>
-## @myooken/license-output@0.2.0
+<a id="pkg-myooken-license-output-0-2-1"></a>
+## @myooken/license-output@0.2.1
 - Source: git+https://github.com/myooken/collect-node-modules-licenses.git
 - License: MIT
 - Usage: Present in node_modules
@@ -12691,12 +12691,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 <a id="pkg-stackback-0-0-2"></a>
 ## stackback@0.0.2
-- Source: https://github.com/shtylman/node-stackback.git
+- Source: git://github.com/shtylman/node-stackback.git
 - License: MIT
 - Usage: Present in node_modules
-- (no LICENSE/NOTICE/COPYING files)
+- Notes: not found license file
+- (no LICENSE/NOTICE/THIRD-PARTY-NOTICES/COPYING files)
 
-_No LICENSE/NOTICE/COPYING file found in package directory._
+_No LICENSE/NOTICE/THIRD-PARTY-NOTICES/COPYING file found in package directory._
 
 <a id="pkg-std-env-3-10-0"></a>
 ## std-env@3.10.0

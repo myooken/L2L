@@ -1,11 +1,11 @@
 # THIRD-PARTY-LICENSE-REVIEW
 
-Generated from: \L2L\node_modules
+Generated from: node_modules
 Main file: THIRD-PARTY-LICENSE.md
 
 ## @acemir/cssom@0.9.24
 - Main: THIRD-PARTY-LICENSE.md#pkg-acemir-cssom-0-9-24
-- Source: https://github.com/acemir/CSSOM
+- Source: acemir/CSSOM
 - License: MIT
 - Files:
   - LICENSE.txt
@@ -338,7 +338,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## @eslint/eslintrc@3.3.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-eslint-eslintrc-3-3-3
-- Source: https://github.com/eslint/eslintrc
+- Source: eslint/eslintrc
 - License: MIT
 - Files:
   - LICENSE
@@ -462,8 +462,8 @@ Main file: THIRD-PARTY-LICENSE.md
 - Status: Present in node_modules
 - Notes:
 
-## @myooken/license-output@0.2.0
-- Main: THIRD-PARTY-LICENSE.md#pkg-myooken-license-output-0-2-0
+## @myooken/license-output@0.2.1
+- Main: THIRD-PARTY-LICENSE.md#pkg-myooken-license-output-0-2-1
 - Source: git+https://github.com/myooken/collect-node-modules-licenses.git
 - License: MIT
 - Files:
@@ -487,7 +487,7 @@ Main file: THIRD-PARTY-LICENSE.md
 - Files:
   - LICENSE.md
   - LICENSE-CORE.md
-- Status: add LICENSE.md, LICENSE-CORE.md
+- Status: found in repo, add LICENSE.md, LICENSE-CORE.md
 - Notes:
 
 ## @rollup/rollup-win32-x64-msvc@4.53.3
@@ -497,7 +497,7 @@ Main file: THIRD-PARTY-LICENSE.md
 - Files:
   - LICENSE.md
   - LICENSE-CORE.md
-- Status: add LICENSE.md, LICENSE-CORE.md
+- Status: found in repo, add LICENSE.md, LICENSE-CORE.md
 - Notes:
 
 ## @standard-schema/spec@1.0.0
@@ -934,7 +934,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## argparse@2.0.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-argparse-2-0-1
-- Source: https://github.com/nodeca/argparse
+- Source: nodeca/argparse
 - License: Python-2.0
 - Files:
   - LICENSE
@@ -961,7 +961,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## balanced-match@1.0.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-balanced-match-1-0-2
-- Source: https://github.com/juliangruber/balanced-match.git
+- Source: git://github.com/juliangruber/balanced-match.git
 - License: MIT
 - Files:
   - LICENSE.md
@@ -988,7 +988,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## brace-expansion@1.1.12
 - Main: THIRD-PARTY-LICENSE.md#pkg-brace-expansion-1-1-12
-- Source: https://github.com/juliangruber/brace-expansion.git
+- Source: git://github.com/juliangruber/brace-expansion.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1006,7 +1006,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## browserslist@4.28.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-browserslist-4-28-1
-- Source: https://github.com/browserslist/browserslist
+- Source: browserslist/browserslist
 - License: MIT
 - Files:
   - LICENSE
@@ -1015,7 +1015,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## callsites@3.1.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-callsites-3-1-0
-- Source: https://github.com/sindresorhus/callsites
+- Source: sindresorhus/callsites
 - License: MIT
 - Files:
   - license
@@ -1024,7 +1024,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## caniuse-lite@1.0.30001759
 - Main: THIRD-PARTY-LICENSE.md#pkg-caniuse-lite-1-0-30001759
-- Source: https://github.com/browserslist/caniuse-lite
+- Source: browserslist/caniuse-lite
 - License: CC-BY-4.0
 - Files:
   - LICENSE
@@ -1042,7 +1042,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## chalk@4.1.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-chalk-4-1-2
-- Source: https://github.com/chalk/chalk
+- Source: chalk/chalk
 - License: MIT
 - Files:
   - license
@@ -1051,7 +1051,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## color-convert@2.0.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-color-convert-2-0-1
-- Source: https://github.com/Qix-/color-convert
+- Source: Qix-/color-convert
 - License: MIT
 - Files:
   - LICENSE
@@ -1060,7 +1060,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## color-name@1.1.4
 - Main: THIRD-PARTY-LICENSE.md#pkg-color-name-1-1-4
-- Source: https://github.com/colorjs/color-name
+- Source: git@github.com:colorjs/color-name.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1069,7 +1069,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## concat-map@0.0.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-concat-map-0-0-1
-- Source: https://github.com/substack/node-concat-map.git
+- Source: git://github.com/substack/node-concat-map.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1078,7 +1078,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## convert-source-map@2.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-convert-source-map-2-0-0
-- Source: https://github.com/thlorenz/convert-source-map.git
+- Source: git://github.com/thlorenz/convert-source-map.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1087,7 +1087,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## cookie@1.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-cookie-1-1-1
-- Source: https://github.com/jshttp/cookie
+- Source: jshttp/cookie
 - License: MIT
 - Files:
   - LICENSE
@@ -1105,7 +1105,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## css-tree@3.1.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-css-tree-3-1-0
-- Source: https://github.com/csstree/csstree
+- Source: csstree/csstree
 - License: MIT
 - Files:
   - LICENSE
@@ -1123,7 +1123,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## cssstyle@5.3.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-cssstyle-5-3-3
-- Source: https://github.com/jsdom/cssstyle
+- Source: jsdom/cssstyle
 - License: MIT
 - Files:
   - LICENSE
@@ -1177,7 +1177,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## dequal@2.0.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-dequal-2-0-3
-- Source: https://github.com/lukeed/dequal
+- Source: lukeed/dequal
 - License: MIT
 - Files:
   - license
@@ -1231,7 +1231,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## escalade@3.2.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-escalade-3-2-0
-- Source: https://github.com/lukeed/escalade
+- Source: lukeed/escalade
 - License: MIT
 - Files:
   - license
@@ -1240,7 +1240,7 @@ Main file: THIRD-PARTY-LICENSE.md
 
 ## escape-string-regexp@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-escape-string-regexp-4-0-0
-- Source: https://github.com/sindresorhus/escape-string-regexp
+- Source: sindresorhus/escape-string-regexp
 - License: MIT
 - Files:
   - license
@@ -1259,7 +1259,6 @@ Main file: THIRD-PARTY-LICENSE.md
 ## eslint-plugin-react-refresh@0.4.24
 - Main: THIRD-PARTY-LICENSE.md#pkg-eslint-plugin-react-refresh-0-4-24
 - Source: github:ArnaudBarre/eslint-plugin-react-refresh
-https://github.com/ArnaudBarre/eslint-plugin-react-refresh
 - License: MIT
 - Files:
   - LICENSE
@@ -1277,7 +1276,7 @@ https://github.com/ArnaudBarre/eslint-plugin-react-refresh
 
 ## eslint-visitor-keys@3.4.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-eslint-visitor-keys-3-4-3
-- Source: https://github.com/eslint/eslint-visitor-keys
+- Source: eslint/eslint-visitor-keys
 - License: Apache-2.0
 - Files:
   - LICENSE
@@ -1295,7 +1294,7 @@ https://github.com/ArnaudBarre/eslint-plugin-react-refresh
 
 ## eslint@9.39.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-eslint-9-39-1
-- Source: https://github.com/eslint/eslint
+- Source: eslint/eslint
 - License: MIT
 - Files:
   - LICENSE
@@ -1358,7 +1357,7 @@ https://github.com/ArnaudBarre/eslint-plugin-react-refresh
 
 ## eventemitter3@4.0.7
 - Main: THIRD-PARTY-LICENSE.md#pkg-eventemitter3-4-0-7
-- Source: https://github.com/primus/eventemitter3.git
+- Source: git://github.com/primus/eventemitter3.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1422,7 +1421,7 @@ https://github.com/jaredwray/cacheable
 
 ## find-up@5.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-find-up-5-0-0
-- Source: https://github.com/sindresorhus/find-up
+- Source: sindresorhus/find-up
 - License: MIT
 - Files:
   - license
@@ -1459,7 +1458,7 @@ https://github.com/jaredwray/cacheable
 
 ## glob-parent@6.0.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-glob-parent-6-0-2
-- Source: https://github.com/gulpjs/glob-parent
+- Source: gulpjs/glob-parent
 - License: ISC
 - Files:
   - LICENSE
@@ -1468,7 +1467,7 @@ https://github.com/jaredwray/cacheable
 
 ## globals@14.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-globals-14-0-0
-- Source: https://github.com/sindresorhus/globals
+- Source: sindresorhus/globals
 - License: MIT
 - Files:
   - license
@@ -1477,7 +1476,7 @@ https://github.com/jaredwray/cacheable
 
 ## globals@16.5.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-globals-16-5-0
-- Source: https://github.com/sindresorhus/globals
+- Source: sindresorhus/globals
 - License: MIT
 - Files:
   - license
@@ -1495,7 +1494,7 @@ https://github.com/jaredwray/cacheable
 
 ## has-flag@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-has-flag-4-0-0
-- Source: https://github.com/sindresorhus/has-flag
+- Source: sindresorhus/has-flag
 - License: MIT
 - Files:
   - license
@@ -1524,7 +1523,7 @@ https://github.com/facebook/hermes
 
 ## html-encoding-sniffer@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-html-encoding-sniffer-4-0-0
-- Source: https://github.com/jsdom/html-encoding-sniffer
+- Source: jsdom/html-encoding-sniffer
 - License: MIT
 - Files:
   - LICENSE.txt
@@ -1551,7 +1550,7 @@ https://github.com/facebook/hermes
 
 ## iconv-lite@0.6.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-iconv-lite-0-6-3
-- Source: https://github.com/ashtuchkin/iconv-lite.git
+- Source: git://github.com/ashtuchkin/iconv-lite.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1597,7 +1596,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## indent-string@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-indent-string-4-0-0
-- Source: https://github.com/sindresorhus/indent-string
+- Source: sindresorhus/indent-string
 - License: MIT
 - Files:
   - license
@@ -1606,7 +1605,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## is-extglob@2.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-is-extglob-2-1-1
-- Source: https://github.com/jonschlinkert/is-extglob
+- Source: jonschlinkert/is-extglob
 - License: MIT
 - Files:
   - LICENSE
@@ -1615,7 +1614,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## is-glob@4.0.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-is-glob-4-0-3
-- Source: https://github.com/micromatch/is-glob
+- Source: micromatch/is-glob
 - License: MIT
 - Files:
   - LICENSE
@@ -1642,7 +1641,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## js-tokens@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-js-tokens-4-0-0
-- Source: https://github.com/lydell/js-tokens
+- Source: lydell/js-tokens
 - License: MIT
 - Files:
   - LICENSE
@@ -1651,7 +1650,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## js-yaml@4.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-js-yaml-4-1-1
-- Source: https://github.com/nodeca/js-yaml
+- Source: nodeca/js-yaml
 - License: MIT
 - Files:
   - LICENSE
@@ -1723,7 +1722,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## levn@0.4.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-levn-0-4-1
-- Source: https://github.com/gkz/levn.git
+- Source: git://github.com/gkz/levn.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1732,7 +1731,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## locate-path@6.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-locate-path-6-0-0
-- Source: https://github.com/sindresorhus/locate-path
+- Source: sindresorhus/locate-path
 - License: MIT
 - Files:
   - license
@@ -1741,7 +1740,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## lodash.merge@4.6.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-lodash-merge-4-6-2
-- Source: https://github.com/lodash/lodash
+- Source: lodash/lodash
 - License: MIT
 - Files:
   - LICENSE
@@ -1750,7 +1749,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## lru-cache@11.2.4
 - Main: THIRD-PARTY-LICENSE.md#pkg-lru-cache-11-2-4
-- Source: https://github.com/isaacs/node-lru-cache.git
+- Source: git://github.com/isaacs/node-lru-cache.git
 - License: BlueOak-1.0.0
 - Files:
   - LICENSE.md
@@ -1759,7 +1758,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## lru-cache@5.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-lru-cache-5-1-1
-- Source: https://github.com/isaacs/node-lru-cache.git
+- Source: git://github.com/isaacs/node-lru-cache.git
 - License: ISC
 - Files:
   - LICENSE
@@ -1804,7 +1803,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## minimatch@3.1.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-minimatch-3-1-2
-- Source: https://github.com/isaacs/minimatch.git
+- Source: git://github.com/isaacs/minimatch.git
 - License: ISC
 - Files:
   - LICENSE
@@ -1822,7 +1821,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## ms@2.1.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-ms-2-1-3
-- Source: https://github.com/vercel/ms
+- Source: vercel/ms
 - License: MIT
 - Files:
   - license.md
@@ -1831,7 +1830,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## nanoid@3.3.11
 - Main: THIRD-PARTY-LICENSE.md#pkg-nanoid-3-3-11
-- Source: https://github.com/ai/nanoid
+- Source: ai/nanoid
 - License: MIT
 - Files:
   - LICENSE
@@ -1840,7 +1839,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## natural-compare@1.4.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-natural-compare-1-4-0
-- Source: https://github.com/litejs/natural-compare-lite.git
+- Source: git://github.com/litejs/natural-compare-lite.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1867,7 +1866,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## optionator@0.9.4
 - Main: THIRD-PARTY-LICENSE.md#pkg-optionator-0-9-4
-- Source: https://github.com/gkz/optionator.git
+- Source: git://github.com/gkz/optionator.git
 - License: MIT
 - Files:
   - LICENSE
@@ -1876,7 +1875,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## p-limit@3.1.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-p-limit-3-1-0
-- Source: https://github.com/sindresorhus/p-limit
+- Source: sindresorhus/p-limit
 - License: MIT
 - Files:
   - license
@@ -1885,7 +1884,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## p-locate@5.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-p-locate-5-0-0
-- Source: https://github.com/sindresorhus/p-locate
+- Source: sindresorhus/p-locate
 - License: MIT
 - Files:
   - license
@@ -1894,7 +1893,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## parent-module@1.0.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-parent-module-1-0-1
-- Source: https://github.com/sindresorhus/parent-module
+- Source: sindresorhus/parent-module
 - License: MIT
 - Files:
   - license
@@ -1912,7 +1911,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## path-exists@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-path-exists-4-0-0
-- Source: https://github.com/sindresorhus/path-exists
+- Source: sindresorhus/path-exists
 - License: MIT
 - Files:
   - license
@@ -1921,7 +1920,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## path-key@3.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-path-key-3-1-1
-- Source: https://github.com/sindresorhus/path-key
+- Source: sindresorhus/path-key
 - License: MIT
 - Files:
   - license
@@ -1930,7 +1929,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## pathe@2.0.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-pathe-2-0-3
-- Source: https://github.com/unjs/pathe
+- Source: unjs/pathe
 - License: MIT
 - Files:
   - LICENSE
@@ -1957,7 +1956,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## picocolors@1.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-picocolors-1-1-1
-- Source: https://github.com/alexeyraspopov/picocolors
+- Source: alexeyraspopov/picocolors
 - License: ISC
 - Files:
   - LICENSE
@@ -1966,7 +1965,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## picomatch@4.0.3
 - Main: THIRD-PARTY-LICENSE.md#pkg-picomatch-4-0-3
-- Source: https://github.com/micromatch/picomatch
+- Source: micromatch/picomatch
 - License: MIT
 - Files:
   - LICENSE
@@ -1975,7 +1974,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## postcss@8.5.6
 - Main: THIRD-PARTY-LICENSE.md#pkg-postcss-8-5-6
-- Source: https://github.com/postcss/postcss
+- Source: postcss/postcss
 - License: MIT
 - Files:
   - LICENSE
@@ -1984,7 +1983,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## prelude-ls@1.2.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-prelude-ls-1-2-1
-- Source: https://github.com/gkz/prelude-ls.git
+- Source: git://github.com/gkz/prelude-ls.git
 - License: MIT
 - Files:
   - LICENSE
@@ -2074,7 +2073,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## redent@3.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-redent-3-0-0
-- Source: https://github.com/sindresorhus/redent
+- Source: sindresorhus/redent
 - License: MIT
 - Files:
   - license
@@ -2083,7 +2082,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## require-from-string@2.0.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-require-from-string-2-0-2
-- Source: https://github.com/floatdrop/require-from-string
+- Source: floatdrop/require-from-string
 - License: MIT
 - Files:
   - license
@@ -2092,7 +2091,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## resolve-from@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-resolve-from-4-0-0
-- Source: https://github.com/sindresorhus/resolve-from
+- Source: sindresorhus/resolve-from
 - License: MIT
 - Files:
   - license
@@ -2122,8 +2121,8 @@ https://github.com/kaelzhang/node-ignore
 - Source: https://github.com/lddubeau/saxes.git
 - License: ISC
 - Files:
-  - LICENSE
-- Status: add LICENSE
+  - (none)
+- Status: Present in node_modules / Missing LICENSE/NOTICE/THIRD-PARTY-NOTICES/COPYING files
 - Notes:
 
 ## scheduler@0.27.0
@@ -2164,7 +2163,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## set-cookie-parser@2.7.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-set-cookie-parser-2-7-2
-- Source: https://github.com/nfriedly/set-cookie-parser
+- Source: nfriedly/set-cookie-parser
 - License: MIT
 - Files:
   - LICENSE
@@ -2173,7 +2172,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## shebang-command@2.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-shebang-command-2-0-0
-- Source: https://github.com/kevva/shebang-command
+- Source: kevva/shebang-command
 - License: MIT
 - Files:
   - license
@@ -2182,7 +2181,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## shebang-regex@3.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-shebang-regex-3-0-0
-- Source: https://github.com/sindresorhus/shebang-regex
+- Source: sindresorhus/shebang-regex
 - License: MIT
 - Files:
   - license
@@ -2200,7 +2199,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## source-map-js@1.2.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-source-map-js-1-2-1
-- Source: https://github.com/7rulnik/source-map-js
+- Source: 7rulnik/source-map-js
 - License: BSD-3-Clause
 - Files:
   - LICENSE
@@ -2218,7 +2217,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## std-env@3.10.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-std-env-3-10-0
-- Source: https://github.com/unjs/std-env
+- Source: unjs/std-env
 - License: MIT
 - Files:
   - LICENCE
@@ -2227,7 +2226,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## strip-indent@3.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-strip-indent-3-0-0
-- Source: https://github.com/sindresorhus/strip-indent
+- Source: sindresorhus/strip-indent
 - License: MIT
 - Files:
   - license
@@ -2236,7 +2235,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## strip-json-comments@3.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-strip-json-comments-3-1-1
-- Source: https://github.com/sindresorhus/strip-json-comments
+- Source: sindresorhus/strip-json-comments
 - License: MIT
 - Files:
   - license
@@ -2245,7 +2244,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## supports-color@7.2.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-supports-color-7-2-0
-- Source: https://github.com/chalk/supports-color
+- Source: chalk/supports-color
 - License: MIT
 - Files:
   - license
@@ -2263,7 +2262,7 @@ https://github.com/kaelzhang/node-ignore
 
 ## tinybench@2.9.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-tinybench-2-9-0
-- Source: https://github.com/tinylibs/tinybench
+- Source: tinylibs/tinybench
 - License: MIT
 - Files:
   - LICENSE
@@ -2300,7 +2299,6 @@ https://github.com/kaelzhang/node-ignore
 ## tldts-core@7.0.19
 - Main: THIRD-PARTY-LICENSE.md#pkg-tldts-core-7-0-19
 - Source: git+ssh://git@github.com/remusao/tldts.git
-https://github.com/remusao/tldts
 - License: MIT
 - Files:
   - LICENSE
@@ -2309,7 +2307,7 @@ https://github.com/remusao/tldts
 
 ## tldts@7.0.19
 - Main: THIRD-PARTY-LICENSE.md#pkg-tldts-7-0-19
-https://github.com/remusao/tldts
+- Source: git+ssh://git@github.com/remusao/tldts.git
 - License: MIT
 - Files:
   - LICENSE
@@ -2318,7 +2316,7 @@ https://github.com/remusao/tldts
 
 ## tough-cookie@6.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-tough-cookie-6-0-0
-- Source: https://github.com/salesforce/tough-cookie.git
+- Source: git://github.com/salesforce/tough-cookie.git
 - License: BSD-3-Clause
 - Files:
   - LICENSE
@@ -2345,7 +2343,7 @@ https://github.com/remusao/tldts
 
 ## type-check@0.4.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-type-check-0-4-0
-- Source: https://github.com/gkz/type-check.git
+- Source: git://github.com/gkz/type-check.git
 - License: MIT
 - Files:
   - LICENSE
@@ -2382,7 +2380,7 @@ https://github.com/remusao/tldts
 
 ## update-browserslist-db@1.2.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-update-browserslist-db-1-2-1
-- Source: https://github.com/browserslist/update-db
+- Source: browserslist/update-db
 - License: MIT
 - Files:
   - LICENSE
@@ -2427,7 +2425,7 @@ https://github.com/remusao/tldts
 
 ## w3c-xmlserializer@5.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-w3c-xmlserializer-5-0-0
-- Source: https://github.com/jsdom/w3c-xmlserializer
+- Source: jsdom/w3c-xmlserializer
 - License: MIT
 - Files:
   - LICENSE.md
@@ -2454,7 +2452,7 @@ https://github.com/remusao/tldts
 
 ## whatwg-encoding@3.1.1
 - Main: THIRD-PARTY-LICENSE.md#pkg-whatwg-encoding-3-1-1
-- Source: https://github.com/jsdom/whatwg-encoding
+- Source: jsdom/whatwg-encoding
 - License: MIT
 - Files:
   - LICENSE.txt
@@ -2463,7 +2461,7 @@ https://github.com/remusao/tldts
 
 ## whatwg-mimetype@4.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-whatwg-mimetype-4-0-0
-- Source: https://github.com/jsdom/whatwg-mimetype
+- Source: jsdom/whatwg-mimetype
 - License: MIT
 - Files:
   - LICENSE.txt
@@ -2481,7 +2479,7 @@ https://github.com/remusao/tldts
 
 ## which@2.0.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-which-2-0-2
-- Source: https://github.com/isaacs/node-which.git
+- Source: git://github.com/isaacs/node-which.git
 - License: ISC
 - Files:
   - LICENSE
@@ -2499,7 +2497,7 @@ https://github.com/remusao/tldts
 
 ## word-wrap@1.2.5
 - Main: THIRD-PARTY-LICENSE.md#pkg-word-wrap-1-2-5
-- Source: https://github.com/jonschlinkert/word-wrap
+- Source: jonschlinkert/word-wrap
 - License: MIT
 - Files:
   - LICENSE
@@ -2517,7 +2515,7 @@ https://github.com/remusao/tldts
 
 ## xml-name-validator@5.0.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-xml-name-validator-5-0-0
-- Source: https://github.com/jsdom/xml-name-validator
+- Source: jsdom/xml-name-validator
 - License: Apache-2.0
 - Files:
   - LICENSE.txt
@@ -2544,7 +2542,7 @@ https://github.com/remusao/tldts
 
 ## yocto-queue@0.1.0
 - Main: THIRD-PARTY-LICENSE.md#pkg-yocto-queue-0-1-0
-- Source: https://github.com/sindresorhus/yocto-queue
+- Source: sindresorhus/yocto-queue
 - License: MIT
 - Files:
   - license
@@ -2553,7 +2551,7 @@ https://github.com/remusao/tldts
 
 ## zod-validation-error@4.0.2
 - Main: THIRD-PARTY-LICENSE.md#pkg-zod-validation-error-4-0-2
-- Source: https://github.com/causaly/zod-validation-error.git
+- Source: git://github.com/causaly/zod-validation-error.git
 - License: MIT
 - Files:
   - LICENSE
@@ -2581,7 +2579,7 @@ https://github.com/remusao/tldts
 
 - (none)
 
-### Missing LICENSE/NOTICE/COPYING files
+### Missing LICENSE/NOTICE/THIRD-PARTY-NOTICES/COPYING files
 
 - @esbuild/win32-x64@0.25.12
 - @rollup/rollup-win32-x64-gnu@4.53.3
